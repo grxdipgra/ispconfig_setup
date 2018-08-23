@@ -7,41 +7,42 @@
 # Script: install.sh
 # Version: 3.0.2
 # Author: Matteo Temporini <temporini.matteo@gmail.com>
-# Description: This script will install all the packages needed to install
-# ISPConfig 3 on your server.
+# Modificado y traducido por Alberto Avidad Fernandez - OSL Diputación de Granada
+# Descripcion: Este script instalará todos los paquetes necesarios par instalar 
+# ISPConfig 3 en un servidor ubuntu 18.04.
 #
 #
 #---------------------------------------------------------------------
 
-#Those lines are for logging porpuses
+#Logeamos todo
 exec > >(tee -i /var/log/ispconfig_setup.log)
 exec 2>&1
 
 #---------------------------------------------------------------------
-# Global variables
+# Variables Globales
 #---------------------------------------------------------------------
 CFG_HOSTNAME_FQDN=`hostname -f`;
-WT_BACKTITLE="ISPConfig 3 System Installer from Temporini Matteo"
+WT_BACKTITLE="Sistema de instalación ISPConfig 3"
 
 # Bash Colour
 red='\033[0;31m'
 green='\033[0;32m'
-NC='\033[0m' # No Color
+NC='\033[0m' # Sin Color
 
 
-#Saving current directory
+#Guardamos el directorio actual
 PWD=$(pwd);
 
 #---------------------------------------------------------------------
-# Load needed functions
+# Cargamos funciones necesarias
 #---------------------------------------------------------------------
 
 source $PWD/functions/check_linux.sh
-echo "Checking your system, please wait..."
+echo "Chequeando su sistema, por favor espere..."
 CheckLinux
 
 #---------------------------------------------------------------------
-# Load needed Modules
+# Cargamos modulos necesarios
 #---------------------------------------------------------------------
 
 source $PWD/distros/$DISTRO/preinstallcheck.sh
@@ -72,54 +73,44 @@ source $PWD/distros/$DISTRO/install_basephp.sh #to remove in feature release
 #---------------------------------------------------------------------
 clear
 
-echo "Welcome to ISPConfig Setup Script v.3.0.2"
-echo "This software is developed by Temporini Matteo"
-echo "with the support of the community."
-echo "You can visit my website at the followings URLs"
-echo "http://www.servisys.it http://www.temporini.net"
-echo "and contact me with the following information"
-echo "contact email/hangout: temporini.matteo@gmail.com"
-echo "skype: matteo.temporini"
+echo "Bienvenido a ISPConfig Setup Script v.3.1"
+echo "Este software esta basado en el trabajo de Temporini Matteo"
+echo "Modificado por Alberto Avidad Fernández"
 echo "========================================="
-echo "ISPConfig 3 System installer"
+echo "Instalador de ISPConfig 3"
 echo "========================================="
 echo
-echo "This script will do a nearly unattended installation of"
-echo "all software needed to run ISPConfig 3."
-echo "When this script starts running, it'll keep going all the way"
-echo "So before you continue, please make sure the following checklist is ok:"
-echo
-echo "- This is a clean standard clean installation for supported systems";
-echo "- Internet connection is working properly";
+echo "Este software sirve para instalar de forma desatendida ISPConfig 3."
+echo "- Debemos tener internet";
 echo
 echo
 if [ -n "$PRETTY_NAME" ]; then
-	echo -e "The detected Linux Distribution is: " $PRETTY_NAME
+	echo -e "La versión detectada de Linux: " $PRETTY_NAME
 else
-	echo -e "The detected Linux Distribution is: " $ID-$VERSION_ID
+	echo -e "La distribución de Linux es: " $ID-$VERSION_ID
 fi
 echo
 if [ -n "$DISTRO" ]; then
-	read -p "Is this correct? (y/n)" -n 1 -r
+	read -p "¿Es correcto? (s/n)" -n 1 -r
 	echo    # (optional) move to a new line
-	if [[ ! $REPLY =~ ^[Yy]$ ]]
+	if [[ ! $REPLY =~ ^[Ss]$ ]]
 		then
 		exit 1
 	fi
 else
-	echo -e "Sorry but your System is not supported by this script, if you want your system supported "
-	echo -e "open an issue on GitHub: https://github.com/servisys/ispconfig_setup"
+	echo -e "Lo siento tu sistema no es compatible con este script"
+	echo -e "Ponte en contacto con la OSL de Dipgra"
 	exit 1
 fi
 
 if [ "$DISTRO" == "debian8" ]; then
 	     while [ "x$CFG_ISPCVERSION" == "x" ]
           do
-                CFG_ISPCVERSION=$(whiptail --title "ISPConfig Version" --backtitle "$WT_BACKTITLE" --nocancel --radiolist "Select ISPConfig Version you want to install" 10 50 2 "Stable" "(default)" ON "Beta" "" OFF 3>&1 1>&2 2>&3)
+                CFG_ISPCVERSION=$(whiptail --title "ISPConfig Version" --backtitle "$WT_BACKTITLE" --nocancel --radiolist "Seleccione la versión de ISPConfig" 10 50 2 "estable" "(default)" ON "Beta" "" OFF 3>&1 1>&2 2>&3)
           done
          while [ "x$CFG_MULTISERVER" == "x" ]
           do
-                CFG_MULTISERVER=$(whiptail --title "MULTISERVER SETUP" --backtitle "$WT_BACKTITLE" --nocancel --radiolist "Would you like to install ISPConfig in a MultiServer Setup?" 10 50 2 "no" "(default)" ON "yes" "" OFF 3>&1 1>&2 2>&3)
+                CFG_MULTISERVER=$(whiptail --title "MULTISERVER SETUP" --backtitle "$WT_BACKTITLE" --nocancel --radiolist "¿Quiere instalar ISPConfig en un MultiServer Setup?" 10 50 2 "no" "(default)" ON "yes" "" OFF 3>&1 1>&2 2>&3)
           done
 else
 	CFG_MULTISERVER=no
@@ -152,7 +143,7 @@ if [ -f /etc/debian_version ]; then
     fi
     InstallWebmail 
   else
-    InstallBasePhp    #to remove in feature release
+    InstallBasePhp    
   fi  
   if [ "$CFG_SETUP_MAIL" == "yes" ] || [ "$CFG_MULTISERVER" == "no" ]; then
     InstallPostfix 
@@ -170,20 +161,19 @@ if [ -f /etc/debian_version ]; then
   fi
   InstallISPConfig
   InstallFix
-  echo -e "${green}Well done ISPConfig installed and configured correctly :D ${NC}"
-  echo "Now you can connect to your ISPConfig installation at https://$CFG_HOSTNAME_FQDN:8080 or https://IP_ADDRESS:8080"
-  echo "You can visit my GitHub profile at https://github.com/servisys/ispconfig_setup/"
+  echo -e "${green}Ya tiene ISPConfig instalado y configurado correctamente :D ${NC}"
+  echo "Ahora puede conectarse en https://$CFG_HOSTNAME_FQDN:8080 o https://IP_ADDRESS:8080"
   if [ "$CFG_WEBMAIL" == "roundcube" ]; then
     if [ "$DISTRO" != "debian8" ]; then
-		echo -e "${red}You had to edit user/pass /var/lib/roundcube/plugins/ispconfig3_account/config/config.inc.php of roudcube user, as the one you inserted in ISPconfig ${NC}"
+		echo -e "${red}Debes editar el usuario y la clave del archivo /var/lib/roundcube/plugins/ispconfig3_account/config/config.inc.php del usuario roudcube, como el que insertaste en ISPconfig ${NC}"
 	fi
   fi
   if [ "$CFG_WEBSERVER" == "nginx" ]; then
   	if [ "$CFG_PHPMYADMIN" == "yes" ]; then
-  		echo "Phpmyadmin is accessibile at  http://$CFG_HOSTNAME_FQDN:8081/phpmyadmin or http://IP_ADDRESS:8081/phpmyadmin";
+  		echo "Puede acceder a Phpmyadmin en http://$CFG_HOSTNAME_FQDN:8081/phpmyadmin o http://IP_ADDRESS:8081/phpmyadmin";
 	fi
 	if [ "$DISTRO" == "debian8" ] && [ "$CFG_WEBMAIL" == "roundcube" ]; then
-		echo "Webmail is accessibile at  https://$CFG_HOSTNAME_FQDN/webmail or https://IP_ADDRESS/webmail";
+		echo "Puede acceder al Webmail en https://$CFG_HOSTNAME_FQDN/webmail o https://IP_ADDRESS/webmail";
 	else
 		echo "Webmail is accessibile at  http://$CFG_HOSTNAME_FQDN:8081/webmail or http://IP_ADDRESS:8081/webmail";
 	fi
