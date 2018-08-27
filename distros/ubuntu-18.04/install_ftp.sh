@@ -3,7 +3,7 @@
 #    Install and configure PureFTPd
 #---------------------------------------------------------------------
 InstallFTP() {
-  echo -n "Installing PureFTPd... "
+  echo -n "Instalando PureFTPd... "
   echo "pure-ftpd-common pure-ftpd/virtualchroot boolean true" | debconf-set-selections
   apt-get -yqq install pure-ftpd-common pure-ftpd-mysql > /dev/null 2>&1
   sed -i 's/ftp/\#ftp/' /etc/inetd.conf
@@ -13,6 +13,6 @@ InstallFTP() {
   chmod 600 /etc/ssl/private/pure-ftpd.pem
   service openbsd-inetd restart > /dev/null 2>&1
   service pure-ftpd-mysql restart > /dev/null 2>&1
-  echo -e "[${green}DONE${NC}]\n"
+  echo -e "[${green}HECHO${NC}]\n"
 }
 

@@ -5,10 +5,10 @@
 
 CheckLinux() {
 
-  #Extract information on system
+  #Extraemos información del sistema operativo
   . /etc/os-release
 
-  # Set DISTRO variable to null
+  # Ponemos la variable DISTRO a null
   DISTRO=''
 
   #---------------------------------------------------------------------
@@ -66,6 +66,14 @@ CheckLinux() {
 
   if echo $ID-$VERSION_ID | grep -iq "ubuntu-16.10"; then
 		DISTRO=ubuntu-16.10
+  fi
+  
+  #---------------------------------------------------------------------
+  #	Ubuntu 18.04 server
+  #---------------------------------------------------------------------
+
+  if echo $ID-$VERSION_ID | grep -iq "ubuntu-18.04"; then
+		DISTRO=ubuntu-18.04
   fi
   
   #---------------------------------------------------------------------

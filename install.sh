@@ -66,7 +66,7 @@ source $PWD/distros/$DISTRO/install_metronom.sh
 source $PWD/distros/$DISTRO/install_ispconfig.sh
 source $PWD/distros/$DISTRO/install_fix.sh
 
-source $PWD/distros/$DISTRO/install_basephp.sh #to remove in feature release
+#source $PWD/distros/$DISTRO/install_basephp.sh #to remove in feature release
 #---------------------------------------------------------------------
 # Main program [ main() ]
 #    Run the installer

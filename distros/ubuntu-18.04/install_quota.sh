@@ -3,7 +3,7 @@
 #    Install and configure of disk quota
 #---------------------------------------------------------------------
 InstallQuota() {
-  echo -n "Installing and initializing Quota (this might take while)... "
+  echo -n "Instalando e inicializando las cuotas de disco (puede tardar un buen rato)... "
   apt-get -qqy install quota quotatool > /dev/null 2>&1
 
   if ! [ -f /proc/user_beancounters ]; then
@@ -19,5 +19,5 @@ InstallQuota() {
 	  quotaon -avug > /dev/null 2>&1
 
   fi
-  echo -e "[${green}DONE${NC}]\n"
+  echo -e "[${green}HECHO${NC}]\n"
 }

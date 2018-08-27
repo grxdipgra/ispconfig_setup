@@ -16,13 +16,17 @@ PreInstallCheck() {
 
   if [ ! "$?" -eq 0 ]; then
         echo -e "${red}ERROR: No hemos podido hacer ping a www.google.es${NC}"
-        echo -n "${red}Comprobando ping al proxy de Diputacion... ${NC}"
-        ping -q -c 3 195.57.47.66 > /dev/null 2>&1
+        echo -n "${red}Comprobando ping al repositorio de Diputacion... ${NC}"
+        ping -q -c 3 10.1.1.91 > /dev/null 2>&1
         if [ ! "$?" -eq 0 ]; then
-            echo -e "${red}ERROR: No hemos podido hacer ping al proxy${NC}"
+            echo -e "${red}ERROR: No hemos podido hacer ping al repositorio interno ni a internet${NC}"
             echo -e "${red}ERROR: No tenemos conexion ni dentro ni fuera de la Diputacion, comprueba la conexion${NC}"
             echo -e "${red}ERROR: Es necesario tener conexion a internet para instalar ISPConfig en su sistema${NC}"
             exit 1
+        else 
+            echo -e "${green}Añadiendo el repositorio de Diputacion en su sistema${NC}"
+            echo 'Acquire::http::proxy "http://incidencias.dipgra.es:8080/";' >> /etc/apt/apt.conf.d/00proxy
+            echo 'Acquire::http::proxy::incidencias.dipgra.es "DIRECT";' >> /etc/apt/apt.conf.d/00proxy
         fi
   fi
 
@@ -38,6 +42,7 @@ PreInstallCheck() {
     echo "${red}Se ha movido el archivo /etc/apt/source.list a /etc/apt/source.list.old${NC}"
     mv /etc/apt/source.list /etc/apt/source.list.old
   fi
+
     echo "deb http://de.archive.ubuntu.com/ubuntu/ bionic main restricted" >> /etc/apt/source.list
     echo "deb http://de.archive.ubuntu.com/ubuntu/ bionic-updates main restricted" >> /etc/apt/source.list
     echo "deb http://de.archive.ubuntu.com/ubuntu/ bionic universe" >> /etc/apt/source.list
