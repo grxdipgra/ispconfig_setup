@@ -3,7 +3,7 @@
 #    Install Basic php need to run ispconfig
 #---------------------------------------------------------------------
 InstallJoomla(){
-  echo -n "Instalando Joomla como cms en ispconfig..."
+  echo -n "Instalando Joomla como cms en Ispconfig..."
   mkdir /tmp/joomla
   cd /tmp/joomla
   wget https://incidencias.dipgra.es/bionic-rep/Joomla_3.8.11-Stable-Full_Package.tar.bz2

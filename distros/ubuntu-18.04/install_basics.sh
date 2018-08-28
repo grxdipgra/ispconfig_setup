@@ -4,15 +4,15 @@
 #---------------------------------------------------------------------
 InstallBasics() {
   echo -n "Actualizando el sistema... "
-  apt-get -qq update > /dev/null 2>&1
-  apt-get -qqy upgrade > /dev/null 2>&1
+  debconf-apt-progress -- apt-get -qq update 
+  debconf-apt-progress -- apt-get -qqy upgrade 
   echo -e "[${green}HECHO${NC}]\n"
 
   echo "Instalando paquetes básicos... "
-  apt-get -y install ssh openssh-server vim-nox ntp ntpdate debconf-utils binutils sudo git lsb-release > /dev/null 2>&1
+  debconf-apt-progress -- apt-get -y install ssh openssh-server vim-nox ntp ntpdate debconf-utils binutils sudo git lsb-release
   service apparmor stop 
   update-rc.d -f apparmor remove 
-  apt-get -y remove apparmor apparmor-utils
+  debconf-apt-progress -- apt-get -y remove apparmor apparmor-utils
 
   echo "dash dash/sh boolean false" | debconf-set-selections
   dpkg-reconfigure -f noninteractive dash > /dev/null 2>&1

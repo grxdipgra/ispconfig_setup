@@ -5,7 +5,7 @@
 InstallWebmail() {
   echo -n "Installing webmail client ($CFG_WEBMAIL)... "
   echo "dictionaries-common dictionaries-common/default-wordlist select american (American English)" | debconf-set-selections
-  apt-get -yqq install squirrelmail wamerican > /dev/null 2>&1
+  debconf-apt-progress -- apt-get -yqq install squirrelmail wamerican 
   ln -s /etc/squirrelmail/apache.conf /etc/apache2/conf-enabled/squirrelmail.conf
   sed -i 1d /etc/squirrelmail/apache.conf
   sed -i '1iAlias /webmail /usr/share/squirrelmail' /etc/squirrelmail/apache.conf

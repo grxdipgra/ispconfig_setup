@@ -4,7 +4,7 @@
 #---------------------------------------------------------------------
 InstallQuota() {
   echo -n "Instalando e inicializando las cuotas de disco (puede tardar un buen rato)... "
-  apt-get -qqy install quota quotatool > /dev/null 2>&1
+  debconf-apt-progress -- apt-get -qqy install quota quotatool 
 
   if ! [ -f /proc/user_beancounters ]; then
 

@@ -3,16 +3,16 @@
 #    Start the ISPConfig3 installation script
 #---------------------------------------------------------------------
 InstallISPConfig() {
-  echo "Installing ISPConfig3... "
+  echo "Instalando ISPConfig3... "
   cd /tmp
-  wget https://www.ispconfig.org/downloads/ISPConfig-3-stable.tar.gz
+  wget https://www.ispconfig.org/downloads/ISPConfig-3-stable.tar.gz --no-check-certificate
   tar xfz ISPConfig-3-stable.tar.gz
   cd ispconfig3_install/install/
   if [ "$CFG_ISPC" == "standard" ]; then
-  	  echo "Create INI file"
+  	  echo "Creando fichero INI"
 	  touch autoinstall.ini
 	  echo "[install]" > autoinstall.ini
-	  echo "language=en" >> autoinstall.ini
+	  echo "language=es" >> autoinstall.ini
 	  echo "install_mode=standard" >> autoinstall.ini
 	  echo "hostname=$CFG_HOSTNAME_FQDN" >> autoinstall.ini
 	  echo "mysql_hostname=localhost" >> autoinstall.ini
@@ -29,11 +29,11 @@ InstallISPConfig() {
 	  echo "ispconfig_use_ssl=y" >> autoinstall.ini
 	  echo
 	  echo "[ssl_cert]" >> autoinstall.ini
-	  echo "ssl_cert_country=IT" >> autoinstall.ini
-	  echo "ssl_cert_state=Italy" >> autoinstall.ini
-	  echo "ssl_cert_locality=Udine" >> autoinstall.ini
-	  echo "ssl_cert_organisation=Servisys di Temporini Matteo" >> autoinstall.ini
-	  echo "ssl_cert_organisation_unit=IT department" >> autoinstall.ini
+	  echo "ssl_cert_country=ES" >> autoinstall.ini
+	  echo "ssl_cert_state=España" >> autoinstall.ini
+	  echo "ssl_cert_locality=Granada" >> autoinstall.ini
+	  echo "ssl_cert_organisation=Diputación de Granada" >> autoinstall.ini
+	  echo "ssl_cert_organisation_unit=Oficina de Software Libre - OSL" >> autoinstall.ini
 	  echo "ssl_cert_common_name=$CFG_HOSTNAME_FQDN" >> autoinstall.ini
 	  echo
 	  echo "[expert]" >> autoinstall.ini

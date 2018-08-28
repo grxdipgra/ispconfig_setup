@@ -7,13 +7,13 @@ InstallPostfix() {
   if [ -f /etc/init.d/sendmail ]; then
 	service sendmail stop > /dev/null 2>&1
 	update-rc.d -f sendmail remove > /dev/null 2>&1
-	apt-get -y remove sendmail > /dev/null 2>&1
+	debconf-apt-progress -- apt-get -y remove sendmail 
   fi
   
   echo -n "Instalando Postfix... "
   echo "postfix postfix/main_mailer_type select Internet Site" | debconf-set-selections
   echo "postfix postfix/mailname string $CFG_HOSTNAME_FQDN" | debconf-set-selections
-  apt-get -yqq install postfix postfix-mysql postfix-doc getmail4 > /dev/null 2>&1
+  debconf-apt-progress -- apt-get -yqq install postfix postfix-mysql postfix-doc getmail4 
   sed -i "s/#submission inet n       -       -       -       -       smtpd/submission inet n       -       -       -       -       smtpd/" /etc/postfix/master.cf
   sed -i "s/#  -o syslog_name=postfix\/submission/  -o syslog_name=postfix\/submission/" /etc/postfix/master.cf
   sed -i "s/#  -o smtpd_tls_security_level=encrypt/  -o smtpd_tls_security_level=encrypt/" /etc/postfix/master.cf

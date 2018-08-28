@@ -4,7 +4,7 @@
 #---------------------------------------------------------------------
 InstallFail2ban() {
   echo -n "Instalando fail2ban... "
-  apt-get -y install fail2ban > /dev/null 2>&1
+  debconf-apt-progress -- apt-get -y install fail2ban
 
 
   case $CFG_MTA in

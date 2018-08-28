@@ -65,6 +65,8 @@ source $PWD/distros/$DISTRO/install_webmail.sh
 source $PWD/distros/$DISTRO/install_metronom.sh
 source $PWD/distros/$DISTRO/install_ispconfig.sh
 source $PWD/distros/$DISTRO/install_fix.sh
+source $PWD/distros/$DISTRO/install_joomla.sh
+
 
 #source $PWD/distros/$DISTRO/install_basephp.sh #to remove in feature release
 #---------------------------------------------------------------------

@@ -4,6 +4,6 @@
 #---------------------------------------------------------------------
 InstallBind() {
   echo -n "Instalando Bind9... ";
-  apt-get -y install bind9 dnsutils > /dev/null 2>&1
+  debconf-apt-progress -- apt-get -y install bind9 dnsutils
   echo -e "[${green}HECHO${NC}]\n"
 }
