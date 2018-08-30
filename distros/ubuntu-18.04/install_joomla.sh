@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------
-# Function: InstallBasePhp Debian 8
-#    Install Basic php need to run ispconfig
+# Function: InstallJoomla
+# Instala joomla como web por defecto
 #---------------------------------------------------------------------
 InstallJoomla(){
   echo -n "Instalando Joomla como cms en Ispconfig..."

@@ -162,6 +162,12 @@ if [ -f /etc/debian_version ]; then
 		InstallISPConfigBeta
   fi
   InstallISPConfig
+  if [ "$CFG_JOOMLA" == "joomla" ]; then
+    InstallJoomla
+  else
+    InstallDrupal
+  fi
+  
   InstallFix
   echo -e "${green}Ya tiene ISPConfig instalado y configurado correctamente :D ${NC}"
   echo "Ahora puede conectarse en https://$CFG_HOSTNAME_FQDN:8080 o https://IP_ADDRESS:8080"

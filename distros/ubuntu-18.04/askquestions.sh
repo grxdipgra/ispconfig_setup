@@ -36,6 +36,7 @@ AskQuestions() {
 		CFG_MTA=$(whiptail --title "Servidor de Correo" --backtitle "$WT_BACKTITLE" --nocancel --radiolist "Seleccione el servidor de correo" 10 50 2 "dovecot" "(default)" ON "courier" "" OFF 3>&1 1>&2 2>&3)
 	  done
 	  
+	  	  	  
 	  while [ "x$CFG_HHVMINSTALL" == "x" ]
 	  do
 		CFG_HHVMINSTALL=$(whiptail --title "Instalar HHVM" --backtitle "$WT_BACKTITLE" --nocancel --radiolist "¿Quiere instalar HHVM?" 10 50 2 "yes" "" OFF "no""(default)" ON 3>&1 1>&2 2>&3)
@@ -56,6 +57,11 @@ AskQuestions() {
 	  else
 		CFG_QUOTA=no
 	  fi
+	
+      while [ "x$CFG_JOOMLA" == "x" ]
+	  do
+		CFG_JOOMLA=$(whiptail --title "Instalacion de CMS" --backtitle "$WT_BACKTITLE" --nocancel --radiolist "Seleccione el CMD por defecto" 10 50 2 "joomla" "(default)" ON "drupal" "" OFF 3>&1 1>&2 2>&3)
+	  done
 	
 	  while [ "x$CFG_ISPC" == "x" ]
 	  do
