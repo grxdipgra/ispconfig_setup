@@ -74,7 +74,7 @@ AskQuestions() {
 		CFG_JKIT=no
 	  fi
 	  
-	  CFG_WEBMAIL=squirrelmail
+	  CFG_WEBMAIL=roundcube
 	  
 	  SSL_COUNTRY=$(whiptail --title "SSL Pais" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Pais (ejem. ES)" --nocancel 10 50 3>&1 1>&2 2>&3)
       SSL_STATE=$(whiptail --title "SSL Estado" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - ESTADO (ejem. Espana)" --nocancel 10 50 3>&1 1>&2 2>&3)

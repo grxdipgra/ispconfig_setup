@@ -8,6 +8,10 @@ InstallWebServer() {
 	echo -n "Instalando Apache, phpmyadmin y sus modulos... "
 	echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
 	echo "dbconfig-common dbconfig-common/dbconfig-install boolean true" | debconf-set-selections
+	echo "dbconfig-common dbconfig-common/dbconfig-install boolean true" | debconf-set-selections
+	echo "phpmyadmin phpmyadmin/mysql/admin-pass password $ROOT_PASS" | debconf-set-selections
+    echo "phpmyadmin phpmyadmin/mysql/app-pass password $APP_DB_PASS" | debconf-set-selections
+    
 	debconf-apt-progress -- apt-get -yqq install apache2 apache2-doc apache2-utils libapache2-mod-php php7.2 php7.2-common php7.2-gd php7.2-mysql php7.2-imap php7.2-cli php7.2-cgi libapache2-mod-fcgid apache2-suexec-pristine php-pear mcrypt  imagemagick libruby libapache2-mod-python  
 	echo -e "[${green}HECHO${NC}]\n"
 	echo -n "Instalando modulos de PHP... "

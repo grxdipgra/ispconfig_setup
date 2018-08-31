@@ -5,7 +5,11 @@
 InstallISPConfig() {
   echo "Instalando ISPConfig3... "
   cd /tmp
-  wget https://www.ispconfig.org/downloads/ISPConfig-3-stable.tar.gz --no-check-certificate
+  if [ "$DIPGRA" == "no" ]; then
+    wget https://www.ispconfig.org/downloads/ISPConfig-3-stable.tar.gz --no-check-certificate
+  else
+    wget https://incidencias.dipgra.es/bionic-rep/ISPConfig-3-stable.tar.gz --no-check-certificate
+  fi
   tar xfz ISPConfig-3-stable.tar.gz
   cd ispconfig3_install/install/
   if [ "$CFG_ISPC" == "standard" ]; then
