@@ -33,11 +33,11 @@ InstallISPConfig() {
 	  echo "ispconfig_use_ssl=y" >> autoinstall.ini
 	  echo
 	  echo "[ssl_cert]" >> autoinstall.ini
-	  echo "ssl_cert_country=ES" >> autoinstall.ini
-	  echo "ssl_cert_state=España" >> autoinstall.ini
-	  echo "ssl_cert_locality=Granada" >> autoinstall.ini
-	  echo "ssl_cert_organisation=Diputación de Granada" >> autoinstall.ini
-	  echo "ssl_cert_organisation_unit=Oficina de Software Libre - OSL" >> autoinstall.ini
+	  echo "ssl_cert_country=$SSL_COUNTRY" >> autoinstall.ini
+	  echo "ssl_cert_state=$SSL_STATE" >> autoinstall.ini
+	  echo "ssl_cert_locality=$SSL_LOCALITY" >> autoinstall.ini
+	  echo "ssl_cert_organisation=$SSL_ORGANIZATION" >> autoinstall.ini
+	  echo "ssl_cert_organisation_unit=$SSL_ORGUNIT" >> autoinstall.ini
 	  echo "ssl_cert_common_name=$CFG_HOSTNAME_FQDN" >> autoinstall.ini
 	  echo
 	  echo "[expert]" >> autoinstall.ini

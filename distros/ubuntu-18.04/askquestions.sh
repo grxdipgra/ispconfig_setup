@@ -13,7 +13,7 @@ AskQuestions() {
 		  
 	  while [ "x$CFG_MYSQL_ROOT_PWD" == "x" ]
 	  do
-		CFG_MYSQL_ROOT_PWD=$(whiptail --title "MySQL" --backtitle "$WT_BACKTITLE" --inputbox "Introduzca la clave de root" --nocancel 10 50 3>&1 1>&2 2>&3)
+		CFG_MYSQL_ROOT_PWD=$(whiptail --title "MySQL" --backtitle "$WT_BACKTITLE" --passwordbox "Introduzca la clave de root" --nocancel 10 50 3>&1 1>&2 2>&3)
 	  done
 
 	  while [ "x$CFG_WEBSERVER" == "x" ]
@@ -76,11 +76,11 @@ AskQuestions() {
 	  
 	  CFG_WEBMAIL=roundcube
 	  
-	  SSL_COUNTRY=$(whiptail --title "SSL Pais" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Pais (ejem. ES)" --nocancel 10 50 3>&1 1>&2 2>&3)
-      SSL_STATE=$(whiptail --title "SSL Estado" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - ESTADO (ejem. Espana)" --nocancel 10 50 3>&1 1>&2 2>&3)
-      SSL_LOCALITY=$(whiptail --title "SSL Localidad" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Localidad (ejem. Granada)" --nocancel 10 50 3>&1 1>&2 2>&3)
-      SSL_ORGANIZATION=$(whiptail --title "SSL Organization" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Organizacion (ejem. Exma. Diputación de Granada)" --nocancel 10 50 3>&1 1>&2 2>&3)
-      SSL_ORGUNIT=$(whiptail --title "SSL Organization Unit" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Unidad de Organizacion (ejem. Dpto. Asistencia a Municipios)" --nocancel 10 50 3>&1 1>&2 2>&3)
+	  SSL_COUNTRY=$(whiptail --title "SSL Pais" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Pais (ejem. ES)" --nocancel 10 50  ES 3>&1 1>&2 2>&3)
+      SSL_STATE=$(whiptail --title "SSL Estado" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - ESTADO (ejem. Espana)" --nocancel 10 50 España 3>&1 1>&2 2>&3)
+      SSL_LOCALITY=$(whiptail --title "SSL Localidad" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Localidad (ejem. Granada)" --nocancel 10 50 Granada 3>&1 1>&2 2>&3)
+      SSL_ORGANIZATION=$(whiptail --title "SSL Organization" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Organizacion (ejem. Exma. Diputación de Granada)" --nocancel 10 50 "Exma. Diputación de Granada" 3>&1 1>&2 2>&3)
+      SSL_ORGUNIT=$(whiptail --title "SSL Organization Unit" --backtitle "$WT_BACKTITLE" --inputbox "Configuracion SSL - Unidad de Organizacion (ejem. Dpto. Asistencia a Municipios)" --nocancel 10 50 "Dpto. Asistencia a Municipios - OSL" 3>&1 1>&2 2>&3)
 
 }
 
