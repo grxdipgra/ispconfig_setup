@@ -47,7 +47,6 @@ CheckLinux
 
 source $PWD/distros/$DISTRO/preinstallcheck.sh
 source $PWD/distros/$DISTRO/askquestions.sh
-
 source $PWD/distros/$DISTRO/install_basics.sh
 source $PWD/distros/$DISTRO/install_postfix.sh
 source $PWD/distros/$DISTRO/install_mysql.sh
@@ -66,6 +65,7 @@ source $PWD/distros/$DISTRO/install_metronom.sh
 source $PWD/distros/$DISTRO/install_ispconfig.sh
 source $PWD/distros/$DISTRO/install_fix.sh
 source $PWD/distros/$DISTRO/install_joomla.sh
+
 
 
 #source $PWD/distros/$DISTRO/install_basephp.sh #to remove in feature release
@@ -127,23 +127,41 @@ if [ -f /etc/debian_version ]; then
 	AskQuestionsMultiserver
   fi
   InstallBasics 
-  InstallSQLServer 
+  
+
+  InstallSQLServer
+  
+
   if [ "$CFG_SETUP_WEB" == "yes" ] || [ "$CFG_MULTISERVER" == "no" ]; then
     InstallWebServer
+    
+
     InstallFTP 
+    
+
     if [ "$CFG_QUOTA" == "yes" ]; then
     	InstallQuota 
+    	
+
     fi
     if [ "$CFG_JKIT" == "yes" ]; then
     	InstallJailkit 
+    	
+
     fi
     if [ "$CFG_HHVM" == "yes" ]; then
     	InstallHHVM
+    	
+
     fi
     if [ "$CFG_METRONOM" == "yes" ]; then
     	InstallMetronom 
+    	
+
     fi
     InstallWebmail 
+    
+
   else
     InstallBasePhp    
   fi  
@@ -183,7 +201,7 @@ if [ -f /etc/debian_version ]; then
 	if [ "$DISTRO" == "debian8" ] && [ "$CFG_WEBMAIL" == "roundcube" ]; then
 		echo "Puede acceder al Webmail en https://$CFG_HOSTNAME_FQDN/webmail o https://IP_ADDRESS/webmail";
 	else
-		echo "Webmail is accessibile at  http://$CFG_HOSTNAME_FQDN:8081/webmail or http://IP_ADDRESS:8081/webmail";
+		echo "Puede acceder al Webmail en http://$CFG_HOSTNAME_FQDN:8081/webmail o http://IP_ADDRESS:8081/webmail";
 	fi
   fi
 else 

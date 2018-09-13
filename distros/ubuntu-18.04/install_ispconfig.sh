@@ -16,7 +16,7 @@ InstallISPConfig() {
   	  echo "Creando fichero INI"
 	  touch autoinstall.ini
 	  echo "[install]" > autoinstall.ini
-	  echo "language=es" >> autoinstall.ini
+	  echo "language=en" >> autoinstall.ini
 	  echo "install_mode=standard" >> autoinstall.ini
 	  echo "hostname=$CFG_HOSTNAME_FQDN" >> autoinstall.ini
 	  echo "mysql_hostname=localhost" >> autoinstall.ini
@@ -31,7 +31,7 @@ InstallISPConfig() {
 	  fi
 	  echo "ispconfig_port=8080" >> autoinstall.ini
 	  echo "ispconfig_use_ssl=y" >> autoinstall.ini
-	  echo
+	  echo "ispconfig_admin_password=$CFG_MYSQL_ROOT_PWD" >> autoinstall.ini
 	  echo "[ssl_cert]" >> autoinstall.ini
 	  echo "ssl_cert_country=$SSL_COUNTRY" >> autoinstall.ini
 	  echo "ssl_cert_state=$SSL_STATE" >> autoinstall.ini
@@ -39,6 +39,7 @@ InstallISPConfig() {
 	  echo "ssl_cert_organisation=$SSL_ORGANIZATION" >> autoinstall.ini
 	  echo "ssl_cert_organisation_unit=$SSL_ORGUNIT" >> autoinstall.ini
 	  echo "ssl_cert_common_name=$CFG_HOSTNAME_FQDN" >> autoinstall.ini
+	  echo "ssl_cert_email=osl@dipgra.es" >> autoinstall.ini
 	  echo
 	  echo "[expert]" >> autoinstall.ini
 	  echo "mysql_ispconfig_user=ispconfig" >> autoinstall.ini
