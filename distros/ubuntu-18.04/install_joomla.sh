@@ -7,9 +7,9 @@ InstallJoomla(){
   mkdir /tmp/joomla
   cd /tmp/joomla
   if [ "$DIPGRA" == "no" ]; then
-        wget https://github.com/joomla/joomla-cms/releases/download/3.8.11/Joomla_3.8.11-Stable-Full_Package.tar.bz2
+        wget https://github.com/joomla/joomla-cms/releases/download/3.8.11/Joomla_3.8.11-Stable-Full_Package.tar.bz2 --no-check-certificate
   else
-        wget https://incidencias.dipgra.es/bionic-rep/Joomla_3.8.11-Stable-Full_Package.tar.bz2
+        wget https://incidencias.dipgra.es/bionic-rep/Joomla_3.8.11-Stable-Full_Package.tar.bz2 --no-check-certificate
   fi
   tar xjvf Joomla_3.8.11-Stable-Full_Package.tar.bz2
   rm Joomla_3.8.11-Stable-Full_Package.tar.bz2
@@ -34,13 +34,13 @@ InstallJoomla(){
   ##Instalamos 
   
   if [ "$DIPGRA" == "no" ]; then
-        wget https://github.com/aavidad/ispconfig_setup/sample_data.sql
+        wget https://github.com/aavidad/ispconfig_setup/sample_data.sql --no-check-certificate
   else
-       wget https://incidencias.dipgra.es/bionic-rep/sample_data.sql
+       wget https://incidencias.dipgra.es/bionic-rep/sample_data.sql --no-check-certificate
   fi
   rm /usr/local/ispconfig/server/joomla/installation/sql/mysql/sample*
   mv sample_data.sql /usr/local/ispconfig/server/joomla/installation/sql/mysql/       
-  
+ 
     
 }
 

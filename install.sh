@@ -13,7 +13,7 @@
 #
 #
 #---------------------------------------------------------------------
-
+set -e 
 #Logeamos todo
 exec > >(tee -i /var/log/ispconfig_setup.log)
 exec 2>&1
@@ -24,7 +24,7 @@ exec 2>&1
 CFG_HOSTNAME_FQDN=`hostname -f`;
 WT_BACKTITLE="Sistema de instalación ISPConfig 3"
 
-# Bash Colour
+# Color de Bash
 red='\033[0;31m'
 green='\033[0;32m'
 NC='\033[0m' # Sin Color
@@ -68,7 +68,6 @@ source $PWD/distros/$DISTRO/install_joomla.sh
 
 
 
-#source $PWD/distros/$DISTRO/install_basephp.sh #to remove in feature release
 #---------------------------------------------------------------------
 # Main program [ main() ]
 #    Run the installer
@@ -78,11 +77,13 @@ clear
 echo "Bienvenido a ISPConfig Setup Script v.3.1"
 echo "Este software esta basado en el trabajo de Temporini Matteo"
 echo "Modificado por Alberto Avidad Fernández"
+echo "para la Oficina de Software Libre de la Diputación de Granada"
+echo "Para cualquier consulta pongase en contacto con osl@dipgra.es"
 echo "========================================="
 echo "Instalador de ISPConfig 3"
 echo "========================================="
 echo
-echo "Este software sirve para instalar de forma desatendida ISPConfig 3."
+echo "Este software sirve para instalar de forma desatendida ISPConfig 3, con Joomla como CMS"
 echo "- Debemos tener internet";
 echo
 echo
