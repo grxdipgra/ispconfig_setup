@@ -1,12 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 10-08-2018 a las 11:42:49
--- Versión del servidor: 10.1.29-MariaDB-6
--- Versión de PHP: 7.2.5-0ubuntu0.18.04.1
+-- Servidor: localhost
+-- Tiempo de generación: 12-08-2018 a las 15:04:06
+-- Versión del servidor: 10.1.34-MariaDB-0ubuntu0.18.04.1
+-- Versión de PHP: 7.2.7-0ubuntu0.18.04.2
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -17,10 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `multiportal`
+-- Base de datos: `#_`
 --
-CREATE DATABASE IF NOT EXISTS `multiportal` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `multiportal`;
 
 -- --------------------------------------------------------
 
@@ -42,8 +41,13 @@ CREATE TABLE IF NOT EXISTS `#__assets` (
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__assets`
+--
+
+TRUNCATE TABLE `#__assets`;
 --
 -- Volcado de datos para la tabla `#__assets`
 --
@@ -158,6 +162,11 @@ CREATE TABLE IF NOT EXISTS `#__associations` (
   KEY `idx_key` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__associations`
+--
+
+TRUNCATE TABLE `#__associations`;
 -- --------------------------------------------------------
 
 --
@@ -208,6 +217,11 @@ CREATE TABLE IF NOT EXISTS `#__banners` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__banners`
+--
+
+TRUNCATE TABLE `#__banners`;
 -- --------------------------------------------------------
 
 --
@@ -235,6 +249,11 @@ CREATE TABLE IF NOT EXISTS `#__banner_clients` (
   KEY `idx_metakey_prefix` (`metakey_prefix`(100))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__banner_clients`
+--
+
+TRUNCATE TABLE `#__banner_clients`;
 -- --------------------------------------------------------
 
 --
@@ -253,6 +272,11 @@ CREATE TABLE IF NOT EXISTS `#__banner_tracks` (
   KEY `idx_banner_id` (`banner_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__banner_tracks`
+--
+
+TRUNCATE TABLE `#__banner_tracks`;
 -- --------------------------------------------------------
 
 --
@@ -296,8 +320,13 @@ CREATE TABLE IF NOT EXISTS `#__categories` (
   KEY `idx_left_right` (`lft`,`rgt`),
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__categories`
+--
+
+TRUNCATE TABLE `#__categories`;
 --
 -- Volcado de datos para la tabla `#__categories`
 --
@@ -376,6 +405,11 @@ CREATE TABLE IF NOT EXISTS `#__contact_details` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__contact_details`
+--
+
+TRUNCATE TABLE `#__contact_details`;
 -- --------------------------------------------------------
 
 --
@@ -424,8 +458,13 @@ CREATE TABLE IF NOT EXISTS `#__content` (
   KEY `idx_language` (`language`),
   KEY `idx_xreference` (`xreference`),
   KEY `idx_alias` (`alias`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__content`
+--
+
+TRUNCATE TABLE `#__content`;
 --
 -- Volcado de datos para la tabla `#__content`
 --
@@ -489,6 +528,11 @@ CREATE TABLE IF NOT EXISTS `#__contentitem_tag_map` (
   KEY `idx_core_content_id` (`core_content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Maps items from content tables to tags';
 
+--
+-- Truncar tablas antes de insertar `#__contentitem_tag_map`
+--
+
+TRUNCATE TABLE `#__contentitem_tag_map`;
 -- --------------------------------------------------------
 
 --
@@ -502,6 +546,11 @@ CREATE TABLE IF NOT EXISTS `#__content_frontpage` (
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__content_frontpage`
+--
+
+TRUNCATE TABLE `#__content_frontpage`;
 -- --------------------------------------------------------
 
 --
@@ -517,6 +566,11 @@ CREATE TABLE IF NOT EXISTS `#__content_rating` (
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__content_rating`
+--
+
+TRUNCATE TABLE `#__content_rating`;
 -- --------------------------------------------------------
 
 --
@@ -535,8 +589,13 @@ CREATE TABLE IF NOT EXISTS `#__content_types` (
   `content_history_options` varchar(5120) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'JSON string for com_contenthistory options',
   PRIMARY KEY (`type_id`),
   KEY `idx_alias` (`type_alias`(100))
-) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__content_types`
+--
+
+TRUNCATE TABLE `#__content_types`;
 --
 -- Volcado de datos para la tabla `#__content_types`
 --
@@ -568,6 +627,11 @@ CREATE TABLE IF NOT EXISTS `#__core_log_searches` (
   `hits` int(10) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__core_log_searches`
+--
+
+TRUNCATE TABLE `#__core_log_searches`;
 -- --------------------------------------------------------
 
 --
@@ -598,8 +662,13 @@ CREATE TABLE IF NOT EXISTS `#__extensions` (
   KEY `element_clientid` (`element`,`client_id`),
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__extensions`
+--
+
+TRUNCATE TABLE `#__extensions`;
 --
 -- Volcado de datos para la tabla `#__extensions`
 --
@@ -812,6 +881,11 @@ CREATE TABLE IF NOT EXISTS `#__fields` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__fields`
+--
+
+TRUNCATE TABLE `#__fields`;
 -- --------------------------------------------------------
 
 --
@@ -825,6 +899,11 @@ CREATE TABLE IF NOT EXISTS `#__fields_categories` (
   PRIMARY KEY (`field_id`,`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__fields_categories`
+--
+
+TRUNCATE TABLE `#__fields_categories`;
 -- --------------------------------------------------------
 
 --
@@ -859,6 +938,11 @@ CREATE TABLE IF NOT EXISTS `#__fields_groups` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__fields_groups`
+--
+
+TRUNCATE TABLE `#__fields_groups`;
 -- --------------------------------------------------------
 
 --
@@ -874,6 +958,11 @@ CREATE TABLE IF NOT EXISTS `#__fields_values` (
   KEY `idx_item_id` (`item_id`(191))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__fields_values`
+--
+
+TRUNCATE TABLE `#__fields_values`;
 -- --------------------------------------------------------
 
 --
@@ -899,6 +988,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_filters` (
   PRIMARY KEY (`filter_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_filters`
+--
+
+TRUNCATE TABLE `#__finder_filters`;
 -- --------------------------------------------------------
 
 --
@@ -935,6 +1029,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links` (
   KEY `idx_published_sale` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`sale_price`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links`
+--
+
+TRUNCATE TABLE `#__finder_links`;
 -- --------------------------------------------------------
 
 --
@@ -951,6 +1050,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms0` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms0`
+--
+
+TRUNCATE TABLE `#__finder_links_terms0`;
 -- --------------------------------------------------------
 
 --
@@ -967,6 +1071,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms1` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms1`
+--
+
+TRUNCATE TABLE `#__finder_links_terms1`;
 -- --------------------------------------------------------
 
 --
@@ -983,6 +1092,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms2` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms2`
+--
+
+TRUNCATE TABLE `#__finder_links_terms2`;
 -- --------------------------------------------------------
 
 --
@@ -999,6 +1113,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms3` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms3`
+--
+
+TRUNCATE TABLE `#__finder_links_terms3`;
 -- --------------------------------------------------------
 
 --
@@ -1015,6 +1134,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms4` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms4`
+--
+
+TRUNCATE TABLE `#__finder_links_terms4`;
 -- --------------------------------------------------------
 
 --
@@ -1031,6 +1155,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms5` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms5`
+--
+
+TRUNCATE TABLE `#__finder_links_terms5`;
 -- --------------------------------------------------------
 
 --
@@ -1047,6 +1176,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms6` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms6`
+--
+
+TRUNCATE TABLE `#__finder_links_terms6`;
 -- --------------------------------------------------------
 
 --
@@ -1063,6 +1197,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms7` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms7`
+--
+
+TRUNCATE TABLE `#__finder_links_terms7`;
 -- --------------------------------------------------------
 
 --
@@ -1079,6 +1218,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms8` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms8`
+--
+
+TRUNCATE TABLE `#__finder_links_terms8`;
 -- --------------------------------------------------------
 
 --
@@ -1095,6 +1239,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_terms9` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_terms9`
+--
+
+TRUNCATE TABLE `#__finder_links_terms9`;
 -- --------------------------------------------------------
 
 --
@@ -1111,6 +1260,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsa` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_termsa`
+--
+
+TRUNCATE TABLE `#__finder_links_termsa`;
 -- --------------------------------------------------------
 
 --
@@ -1127,6 +1281,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsb` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_termsb`
+--
+
+TRUNCATE TABLE `#__finder_links_termsb`;
 -- --------------------------------------------------------
 
 --
@@ -1143,6 +1302,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsc` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_termsc`
+--
+
+TRUNCATE TABLE `#__finder_links_termsc`;
 -- --------------------------------------------------------
 
 --
@@ -1159,6 +1323,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsd` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_termsd`
+--
+
+TRUNCATE TABLE `#__finder_links_termsd`;
 -- --------------------------------------------------------
 
 --
@@ -1175,6 +1344,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termse` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_termse`
+--
+
+TRUNCATE TABLE `#__finder_links_termse`;
 -- --------------------------------------------------------
 
 --
@@ -1191,6 +1365,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_links_termsf` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_links_termsf`
+--
+
+TRUNCATE TABLE `#__finder_links_termsf`;
 -- --------------------------------------------------------
 
 --
@@ -1211,8 +1390,13 @@ CREATE TABLE IF NOT EXISTS `#__finder_taxonomy` (
   KEY `ordering` (`ordering`),
   KEY `access` (`access`),
   KEY `idx_parent_published` (`parent_id`,`state`,`access`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_taxonomy`
+--
+
+TRUNCATE TABLE `#__finder_taxonomy`;
 --
 -- Volcado de datos para la tabla `#__finder_taxonomy`
 --
@@ -1235,6 +1419,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_taxonomy_map` (
   KEY `node_id` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_taxonomy_map`
+--
+
+TRUNCATE TABLE `#__finder_taxonomy_map`;
 -- --------------------------------------------------------
 
 --
@@ -1259,6 +1448,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_terms` (
   KEY `idx_soundex_phrase` (`soundex`,`phrase`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_terms`
+--
+
+TRUNCATE TABLE `#__finder_terms`;
 -- --------------------------------------------------------
 
 --
@@ -1273,6 +1467,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_terms_common` (
   KEY `idx_lang` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_terms_common`
+--
+
+TRUNCATE TABLE `#__finder_terms_common`;
 --
 -- Volcado de datos para la tabla `#__finder_terms_common`
 --
@@ -1408,6 +1607,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_tokens` (
   KEY `idx_context` (`context`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_tokens`
+--
+
+TRUNCATE TABLE `#__finder_tokens`;
 -- --------------------------------------------------------
 
 --
@@ -1431,6 +1635,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_tokens_aggregate` (
   KEY `keyword_id` (`term_id`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_tokens_aggregate`
+--
+
+TRUNCATE TABLE `#__finder_tokens_aggregate`;
 -- --------------------------------------------------------
 
 --
@@ -1446,6 +1655,11 @@ CREATE TABLE IF NOT EXISTS `#__finder_types` (
   UNIQUE KEY `title` (`title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncar tablas antes de insertar `#__finder_types`
+--
+
+TRUNCATE TABLE `#__finder_types`;
 -- --------------------------------------------------------
 
 --
@@ -1473,8 +1687,13 @@ CREATE TABLE IF NOT EXISTS `#__languages` (
   UNIQUE KEY `idx_langcode` (`lang_code`),
   KEY `idx_access` (`access`),
   KEY `idx_ordering` (`ordering`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__languages`
+--
+
+TRUNCATE TABLE `#__languages`;
 --
 -- Volcado de datos para la tabla `#__languages`
 --
@@ -1522,8 +1741,13 @@ CREATE TABLE IF NOT EXISTS `#__menu` (
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_path` (`path`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__menu`
+--
+
+TRUNCATE TABLE `#__menu`;
 --
 -- Volcado de datos para la tabla `#__menu`
 --
@@ -1605,8 +1829,13 @@ CREATE TABLE IF NOT EXISTS `#__menu_types` (
   `client_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_menutype` (`menutype`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__menu_types`
+--
+
+TRUNCATE TABLE `#__menu_types`;
 --
 -- Volcado de datos para la tabla `#__menu_types`
 --
@@ -1635,6 +1864,11 @@ CREATE TABLE IF NOT EXISTS `#__messages` (
   KEY `useridto_state` (`user_id_to`,`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__messages`
+--
+
+TRUNCATE TABLE `#__messages`;
 -- --------------------------------------------------------
 
 --
@@ -1649,6 +1883,11 @@ CREATE TABLE IF NOT EXISTS `#__messages_cfg` (
   UNIQUE KEY `idx_user_var_name` (`user_id`,`cfg_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__messages_cfg`
+--
+
+TRUNCATE TABLE `#__messages_cfg`;
 -- --------------------------------------------------------
 
 --
@@ -1679,8 +1918,13 @@ CREATE TABLE IF NOT EXISTS `#__modules` (
   KEY `published` (`published`,`access`),
   KEY `newsfeeds` (`module`,`published`),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__modules`
+--
+
+TRUNCATE TABLE `#__modules`;
 --
 -- Volcado de datos para la tabla `#__modules`
 --
@@ -1716,6 +1960,11 @@ CREATE TABLE IF NOT EXISTS `#__modules_menu` (
   PRIMARY KEY (`moduleid`,`menuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__modules_menu`
+--
+
+TRUNCATE TABLE `#__modules_menu`;
 --
 -- Volcado de datos para la tabla `#__modules_menu`
 --
@@ -1788,6 +2037,11 @@ CREATE TABLE IF NOT EXISTS `#__newsfeeds` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__newsfeeds`
+--
+
+TRUNCATE TABLE `#__newsfeeds`;
 -- --------------------------------------------------------
 
 --
@@ -1803,6 +2057,11 @@ CREATE TABLE IF NOT EXISTS `#__overrider` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__overrider`
+--
+
+TRUNCATE TABLE `#__overrider`;
 -- --------------------------------------------------------
 
 --
@@ -1826,8 +2085,13 @@ CREATE TABLE IF NOT EXISTS `#__postinstall_messages` (
   `version_introduced` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '3.2.0' COMMENT 'Version when this message was introduced',
   `enabled` tinyint(3) NOT NULL DEFAULT '1',
   PRIMARY KEY (`postinstall_message_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__postinstall_messages`
+--
+
+TRUNCATE TABLE `#__postinstall_messages`;
 --
 -- Volcado de datos para la tabla `#__postinstall_messages`
 --
@@ -1864,6 +2128,11 @@ CREATE TABLE IF NOT EXISTS `#__redirect_links` (
   KEY `idx_link_modifed` (`modified_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__redirect_links`
+--
+
+TRUNCATE TABLE `#__redirect_links`;
 -- --------------------------------------------------------
 
 --
@@ -1877,6 +2146,11 @@ CREATE TABLE IF NOT EXISTS `#__schemas` (
   PRIMARY KEY (`extension_id`,`version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__schemas`
+--
+
+TRUNCATE TABLE `#__schemas`;
 --
 -- Volcado de datos para la tabla `#__schemas`
 --
@@ -1905,11 +2179,16 @@ CREATE TABLE IF NOT EXISTS `#__session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncar tablas antes de insertar `#__session`
+--
+
+TRUNCATE TABLE `#__session`;
+--
 -- Volcado de datos para la tabla `#__session`
 --
 
 INSERT INTO `#__session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-('63de7573r1s2pg9tsi0buc1brp', 1, 0, '1533901014', 'joomla|s:2600:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo1OTc7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTMzODk3NTM0O3M6NDoibGFzdCI7aToxNTMzOTAxMDE0O3M6Mzoibm93IjtpOjE1MzM5MDEwMTQ7fXM6NToidG9rZW4iO3M6MzI6IjhsTEJuT2dDV3ZKMnZUYVRwcmlGcEFrUDZaRnlzZm9sIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjQ6e3M6MTM6ImNvbV9pbnN0YWxsZXIiO086ODoic3RkQ2xhc3MiOjI6e3M6NzoibWVzc2FnZSI7czowOiIiO3M6MTc6ImV4dGVuc2lvbl9tZXNzYWdlIjtzOjA6IiI7fXM6MTQ6ImNvbV9jYXRlZ29yaWVzIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJjYXRlZ29yaWVzIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6ImNvbnRlbnQiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjk6ImV4dGVuc2lvbiI7czoxMToiY29tX2NvbnRlbnQiO31zOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX19fXM6OToiY29tX21lbnVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjU6Iml0ZW1zIjtPOjg6InN0ZENsYXNzIjo0OntzOjg6Im1lbnV0eXBlIjtzOjg6Im1haW5tZW51IjtzOjk6ImNsaWVudF9pZCI7aTowO3M6MTA6ImxpbWl0c3RhcnQiO2k6MDtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX1zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiaXRlbSI7Tzo4OiJzdGRDbGFzcyI6NDp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO3M6NDoidHlwZSI7TjtzOjQ6ImxpbmsiO047fX19czoxMToiY29tX2NvbnRlbnQiO086ODoic3RkQ2xhc3MiOjI6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo3OiJhcnRpY2xlIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fX1zOjg6ImFydGljbGVzIjtPOjg6InN0ZENsYXNzIjo0OntzOjY6ImZpbHRlciI7YTo0OntzOjY6InNlYXJjaCI7czowOiIiO3M6OToicHVibGlzaGVkIjtzOjA6IiI7czo4OiJsYW5ndWFnZSI7czowOiIiO3M6NToibGV2ZWwiO3M6MDoiIjt9czo0OiJsaXN0IjthOjI6e3M6MTI6ImZ1bGxvcmRlcmluZyI7czo5OiJhLmlkIERFU0MiO3M6NToibGltaXQiO3M6MjoiMjAiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo1OiJtb2RhbCI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo2OiJmaWx0ZXIiO2E6NDp7czo2OiJzZWFyY2giO3M6NjoiY29udGFjIjtzOjk6InB1Ymxpc2hlZCI7czowOiIiO3M6ODoibGFuZ3VhZ2UiO3M6MDoiIjtzOjU6ImxldmVsIjtzOjA6IiI7fXM6NDoibGlzdCI7YToyOntzOjEyOiJmdWxsb3JkZXJpbmciO3M6OToiYS5pZCBERVNDIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjt9czoxMDoibGltaXRzdGFydCI7aTowO319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6IjEwMiI7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=\";', 102, 'multiportal'),
+('63de7573r1s2pg9tsi0buc1brp', 1, 0, '1533901014', 'joomla|s:2600:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo1OTc7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTMzODk3NTM0O3M6NDoibGFzdCI7aToxNTMzOTAxMDE0O3M6Mzoibm93IjtpOjE1MzM5MDEwMTQ7fXM6NToidG9rZW4iO3M6MzI6IjhsTEJuT2dDV3ZKMnZUYVRwcmlGcEFrUDZaRnlzZm9sIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjQ6e3M6MTM6ImNvbV9pbnN0YWxsZXIiO086ODoic3RkQ2xhc3MiOjI6e3M6NzoibWVzc2FnZSI7czowOiIiO3M6MTc6ImV4dGVuc2lvbl9tZXNzYWdlIjtzOjA6IiI7fXM6MTQ6ImNvbV9jYXRlZ29yaWVzIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJjYXRlZ29yaWVzIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6ImNvbnRlbnQiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjk6ImV4dGVuc2lvbiI7czoxMToiY29tX2NvbnRlbnQiO31zOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX19fXM6OToiY29tX21lbnVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjU6Iml0ZW1zIjtPOjg6InN0ZENsYXNzIjo0OntzOjg6Im1lbnV0eXBlIjtzOjg6Im1haW5tZW51IjtzOjk6ImNsaWVudF9pZCI7aTowO3M6MTA6ImxpbWl0c3RhcnQiO2k6MDtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX1zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiaXRlbSI7Tzo4OiJzdGRDbGFzcyI6NDp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO3M6NDoidHlwZSI7TjtzOjQ6ImxpbmsiO047fX19czoxMToiY29tX2NvbnRlbnQiO086ODoic3RkQ2xhc3MiOjI6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo3OiJhcnRpY2xlIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fX1zOjg6ImFydGljbGVzIjtPOjg6InN0ZENsYXNzIjo0OntzOjY6ImZpbHRlciI7YTo0OntzOjY6InNlYXJjaCI7czowOiIiO3M6OToicHVibGlzaGVkIjtzOjA6IiI7czo4OiJsYW5ndWFnZSI7czowOiIiO3M6NToibGV2ZWwiO3M6MDoiIjt9czo0OiJsaXN0IjthOjI6e3M6MTI6ImZ1bGxvcmRlcmluZyI7czo5OiJhLmlkIERFU0MiO3M6NToibGltaXQiO3M6MjoiMjAiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo1OiJtb2RhbCI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo2OiJmaWx0ZXIiO2E6NDp7czo2OiJzZWFyY2giO3M6NjoiY29udGFjIjtzOjk6InB1Ymxpc2hlZCI7czowOiIiO3M6ODoibGFuZ3VhZ2UiO3M6MDoiIjtzOjU6ImxldmVsIjtzOjA6IiI7fXM6NDoibGlzdCI7YToyOntzOjEyOiJmdWxsb3JkZXJpbmciO3M6OToiYS5pZCBERVNDIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjt9czoxMDoibGltaXRzdGFydCI7aTowO319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6IjEwMiI7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=\";', 102, '#_'),
 ('8441t0h1inj0478c7geqk078ko', 0, 1, '1533901201', 'joomla|s:992:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTUzMzkwMTIwMTtzOjQ6Imxhc3QiO2k6MTUzMzkwMTIwMTtzOjM6Im5vdyI7aToxNTMzOTAxMjAxO31zOjU6InRva2VuIjtzOjMyOiJ4ZUpaODk4aU11ZnlFUjhiOVYxNmZtTGNYazR0a1R2OCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO31zOjEwOiJjb21fbWFpbHRvIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbmtzIjthOjE6e3M6NDA6IjkwMjlhOTBkNDFjNzM4NDUxYjFjNGM5YzJkOTkwY2ZhZjQ3ZWE2YjAiO086ODoic3RkQ2xhc3MiOjI6e3M6NDoibGluayI7czoyNjoiaHR0cDovL2xvY2FsaG9zdC9pbmRleC5waHAiO3M6NjoiZXhwaXJ5IjtpOjE1MzM5MDEyMDE7fX19fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=\";', 0, ''),
 ('h13asej3mpvaq48hdf9r0s8toh', 0, 1, '1533900302', 'joomla|s:992:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTUzMzkwMDMwMjtzOjQ6Imxhc3QiO2k6MTUzMzkwMDMwMjtzOjM6Im5vdyI7aToxNTMzOTAwMzAyO31zOjU6InRva2VuIjtzOjMyOiJ3TkFFNVp0MGJ0Qno4Y0RTSWpqNjVrbm92QWFqYnQxNSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO31zOjEwOiJjb21fbWFpbHRvIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbmtzIjthOjE6e3M6NDA6IjkwMjlhOTBkNDFjNzM4NDUxYjFjNGM5YzJkOTkwY2ZhZjQ3ZWE2YjAiO086ODoic3RkQ2xhc3MiOjI6e3M6NDoibGluayI7czoyNjoiaHR0cDovL2xvY2FsaG9zdC9pbmRleC5waHAiO3M6NjoiZXhwaXJ5IjtpOjE1MzM5MDAzMDI7fX19fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=\";', 0, ''),
 ('hfa1nahos1bjgtiiv1och7ff3o', 0, 1, '1533900567', 'joomla|s:996:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTUzMzkwMDU0MTtzOjQ6Imxhc3QiO2k6MTUzMzkwMDU0MTtzOjM6Im5vdyI7aToxNTMzOTAwNTY3O31zOjU6InRva2VuIjtzOjMyOiJrNkwyN0dZSlZpZXFKTzI0VDFkRmpiaXpsM1MzdHU4SiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO31zOjEwOiJjb21fbWFpbHRvIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbmtzIjthOjE6e3M6NDA6ImU1YmFhNjI1NzRhNTRkYmZmYzZhOWYxN2NhOTQ4NTliNjRhYmNlNzUiO086ODoic3RkQ2xhc3MiOjI6e3M6NDoibGluayI7czoyODoiaHR0cDovLzEwLjcuMTUuMjA4L2luZGV4LnBocCI7czo2OiJleHBpcnkiO2k6MTUzMzkwMDU2Nzt9fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
@@ -1963,8 +2242,13 @@ CREATE TABLE IF NOT EXISTS `#__tags` (
   KEY `idx_left_right` (`lft`,`rgt`),
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__tags`
+--
+
+TRUNCATE TABLE `#__tags`;
 --
 -- Volcado de datos para la tabla `#__tags`
 --
@@ -1989,16 +2273,21 @@ CREATE TABLE IF NOT EXISTS `#__template_styles` (
   PRIMARY KEY (`id`),
   KEY `idx_template` (`template`),
   KEY `idx_home` (`home`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__template_styles`
+--
+
+TRUNCATE TABLE `#__template_styles`;
 --
 -- Volcado de datos para la tabla `#__template_styles`
 --
 
 INSERT INTO `#__template_styles` (`id`, `template`, `client_id`, `home`, `title`, `params`) VALUES
-(4, 'beez3', 0, '0', 'Beez3 - Default', '{\"wrapperSmall\":\"53\",\"wrapperLarge\":\"72\",\"logo\":\"images\\/joomla_black.png\",\"sitetitle\":\"Joomla!\",\"sitedescription\":\"Open Source Content Management\",\"navposition\":\"left\",\"templatecolor\":\"personal\",\"html5\":\"0\"}'),
+(4, 'beez3', 0, '1', 'Beez3 - Default', '{\"wrapperSmall\":\"53\",\"wrapperLarge\":\"72\",\"logo\":\"images\\/joomla_black.png\",\"sitetitle\":\"Joomla!\",\"sitedescription\":\"Open Source Content Management\",\"navposition\":\"left\",\"templatecolor\":\"personal\",\"html5\":\"0\"}'),
 (5, 'hathor', 1, '0', 'Hathor - Default', '{\"showSiteName\":\"0\",\"colourChoice\":\"\",\"boldText\":\"0\"}'),
-(7, 'protostar', 0, '1', 'protostar - Default', '{\"templateColor\":\"\",\"logoFile\":\"\",\"googleFont\":\"1\",\"googleFontName\":\"Open+Sans\",\"fluidContainer\":\"0\"}'),
+(7, 'protostar', 0, '0', 'protostar - Default', '{\"templateColor\":\"\",\"logoFile\":\"\",\"googleFont\":\"1\",\"googleFontName\":\"Open+Sans\",\"fluidContainer\":\"0\"}'),
 (8, 'isis', 1, '1', 'isis - Default', '{\"templateColor\":\"\",\"logoFile\":\"\"}');
 
 -- --------------------------------------------------------
@@ -2019,6 +2308,11 @@ CREATE TABLE IF NOT EXISTS `#__ucm_base` (
   KEY `idx_ucm_language_id` (`ucm_language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__ucm_base`
+--
+
+TRUNCATE TABLE `#__ucm_base`;
 -- --------------------------------------------------------
 
 --
@@ -2074,6 +2368,11 @@ CREATE TABLE IF NOT EXISTS `#__ucm_content` (
   KEY `idx_core_type_id` (`core_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Contains core content data in name spaced fields';
 
+--
+-- Truncar tablas antes de insertar `#__ucm_content`
+--
+
+TRUNCATE TABLE `#__ucm_content`;
 -- --------------------------------------------------------
 
 --
@@ -2095,8 +2394,13 @@ CREATE TABLE IF NOT EXISTS `#__ucm_history` (
   PRIMARY KEY (`version_id`),
   KEY `idx_ucm_item_id` (`ucm_type_id`,`ucm_item_id`),
   KEY `idx_save_date` (`save_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__ucm_history`
+--
+
+TRUNCATE TABLE `#__ucm_history`;
 --
 -- Volcado de datos para la tabla `#__ucm_history`
 --
@@ -2174,6 +2478,11 @@ CREATE TABLE IF NOT EXISTS `#__updates` (
   PRIMARY KEY (`update_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Available Updates';
 
+--
+-- Truncar tablas antes de insertar `#__updates`
+--
+
+TRUNCATE TABLE `#__updates`;
 -- --------------------------------------------------------
 
 --
@@ -2190,8 +2499,13 @@ CREATE TABLE IF NOT EXISTS `#__update_sites` (
   `last_check_timestamp` bigint(20) DEFAULT '0',
   `extra_query` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT '',
   PRIMARY KEY (`update_site_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
 
+--
+-- Truncar tablas antes de insertar `#__update_sites`
+--
+
+TRUNCATE TABLE `#__update_sites`;
 --
 -- Volcado de datos para la tabla `#__update_sites`
 --
@@ -2214,6 +2528,11 @@ CREATE TABLE IF NOT EXISTS `#__update_sites_extensions` (
   PRIMARY KEY (`update_site_id`,`extension_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Links extensions to update sites';
 
+--
+-- Truncar tablas antes de insertar `#__update_sites_extensions`
+--
+
+TRUNCATE TABLE `#__update_sites_extensions`;
 --
 -- Volcado de datos para la tabla `#__update_sites_extensions`
 --
@@ -2241,8 +2560,13 @@ CREATE TABLE IF NOT EXISTS `#__usergroups` (
   KEY `idx_usergroup_title_lookup` (`title`),
   KEY `idx_usergroup_adjacency_lookup` (`parent_id`),
   KEY `idx_usergroup_nested_set_lookup` (`lft`,`rgt`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__usergroups`
+--
+
+TRUNCATE TABLE `#__usergroups`;
 --
 -- Volcado de datos para la tabla `#__usergroups`
 --
@@ -2287,14 +2611,19 @@ CREATE TABLE IF NOT EXISTS `#__users` (
   KEY `idx_block` (`block`),
   KEY `username` (`username`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__users`
+--
+
+TRUNCATE TABLE `#__users`;
 --
 -- Volcado de datos para la tabla `#__users`
 --
 
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-(102, 'Super User', 'multiportal', 'osl@dipgra.es', '$2y$10$lf4PkhAFw/33ma7TVKvsX.e8zMK7fcK/0viNaXhFkFPlx/cTloHQi', 0, 1, '2018-08-10 10:01:16', '2018-08-10 10:39:16', '0', '', '0000-00-00 00:00:00', 0, '', '', 0);
+(102, 'Super User', '#_', 'osl@dipgra.es', '$2y$10$lf4PkhAFw/33ma7TVKvsX.e8zMK7fcK/0viNaXhFkFPlx/cTloHQi', 0, 1, '2018-08-10 10:01:16', '2018-08-10 10:39:16', '0', '', '0000-00-00 00:00:00', 0, '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -2316,6 +2645,11 @@ CREATE TABLE IF NOT EXISTS `#__user_keys` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__user_keys`
+--
+
+TRUNCATE TABLE `#__user_keys`;
 -- --------------------------------------------------------
 
 --
@@ -2344,6 +2678,11 @@ CREATE TABLE IF NOT EXISTS `#__user_notes` (
   KEY `idx_category_id` (`catid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__user_notes`
+--
+
+TRUNCATE TABLE `#__user_notes`;
 -- --------------------------------------------------------
 
 --
@@ -2359,6 +2698,11 @@ CREATE TABLE IF NOT EXISTS `#__user_profiles` (
   UNIQUE KEY `idx_user_id_profile_key` (`user_id`,`profile_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Simple user profile storage table';
 
+--
+-- Truncar tablas antes de insertar `#__user_profiles`
+--
+
+TRUNCATE TABLE `#__user_profiles`;
 -- --------------------------------------------------------
 
 --
@@ -2372,6 +2716,11 @@ CREATE TABLE IF NOT EXISTS `#__user_usergroup_map` (
   PRIMARY KEY (`user_id`,`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__user_usergroup_map`
+--
+
+TRUNCATE TABLE `#__user_usergroup_map`;
 --
 -- Volcado de datos para la tabla `#__user_usergroup_map`
 --
@@ -2390,6 +2739,11 @@ CREATE TABLE IF NOT EXISTS `#__utf8_conversion` (
   `converted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__utf8_conversion`
+--
+
+TRUNCATE TABLE `#__utf8_conversion`;
 --
 -- Volcado de datos para la tabla `#__utf8_conversion`
 --
@@ -2411,8 +2765,13 @@ CREATE TABLE IF NOT EXISTS `#__viewlevels` (
   `rules` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_assetgroup_title_lookup` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncar tablas antes de insertar `#__viewlevels`
+--
+
+TRUNCATE TABLE `#__viewlevels`;
 --
 -- Volcado de datos para la tabla `#__viewlevels`
 --
@@ -2423,6 +2782,7 @@ INSERT INTO `#__viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 (3, 'Special', 3, '[6,3,8]'),
 (5, 'Guest', 1, '[9]'),
 (6, 'Super Users', 4, '[8]');
+SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
