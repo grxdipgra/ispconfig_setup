@@ -6,7 +6,7 @@ Se ha añadido soporte para ubuntu 18.04 y se ha añadido un cms para los portal
 v.3.1
 
 Este script hace una instalación casi desatendida de ispconfig 3 en un servidor ubuntu 18.04.
-No se han borrado las instalaciones para versiones anteriores a ubuntu 18.04, pero sólo en la versión de ubuntu 18.04 se ha ara añadido CMS para los portales.
+No se han borrado las instalaciones para versiones anteriores a ubuntu 18.04, pero sólo en la versión de ubuntu 18.04 se han  añadido CMS para los portales.
 Según la rama original, se han probado las siguientes instalaciones
 
 - Debian 9 Stretch ([Servisys VPS](https://www.servisys.it/), VmWare Esxi, Amazon AWS, Virtualbox, OVH VPS, Hetzner, Digital Ocean)
