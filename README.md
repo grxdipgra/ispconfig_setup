@@ -45,3 +45,4 @@ Se instalará además en la version 18.04:
 - quota
 - php7.2 
 - webalizer
+Entre otras aplicaciones.
