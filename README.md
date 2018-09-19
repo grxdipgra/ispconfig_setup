@@ -1,6 +1,6 @@
 # README #
 
-Este trabajo es una adaptación para la Diputacion de Granada de ispconfig_setup 3.1 de Temporini Matteo y
+Este trabajo es una adaptación para la Diputacion de Granada de ispconfig_setup 3.1.
 Se ha añadido soporte para ubuntu 18.04 y se ha añadido un cms para los portales de los dominios.
 # Version #
 v.3.1
