@@ -1,18 +1,13 @@
 # README #
 
-[![PayPayl donate button](https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TB4Q3UJDC5JDJ "Help US support this project using Paypal")
-
-# Newsletter #
-Subscribe to our newsletter to recive information about new version of the script.
-The link is here: http://eepurl.com/cAzq95
-We'll use only to inform you on new version of the script :)
-
+Este trabajo es una adaptación para la Diputacion de Granada de ispconfig 3.1 de Temporini Matteo.
+Se ha añadido soporte para ubuntu 18.04 y se ha añadido un cms para los portales de los dominios.
 # Version #
-v.3.0.2
+v.3.1
 
-This is a system to automate the installation of ISPConfig 3 control Panel ( http://www.ispconfig.org/page/home.html ).
-
-Tested on:
+Este script hace una instalación casi desatendida de ispconfig 3 en un servidor ubuntu 18.04.
+No se han borrado las instalaciones para versiones anteriores a ubuntu 18.04, pero sólo en la versión de ubuntu 18.04 se ha ara añadido CMS para los portales.
+Según la rama original, se han probado las siguientes instalaciones
 
 - Debian 9 Stretch ([Servisys VPS](https://www.servisys.it/), VmWare Esxi, Amazon AWS, Virtualbox, OVH VPS, Hetzner, Digital Ocean)
 - Debian 8 Jessie ([Servisys VPS](https://www.servisys.it/), VmWare Esxi, Amazon AWS, Virtualbox, OVH VPS, Hetzner, Digital Ocean)
@@ -23,40 +18,18 @@ Tested on:
 - Centos 7 ([Servisys VPS](https://www.servisys.it/), Vitualbox)
 - ISPConfig 3.*
 
-For now it is tested and developed only on Debian systems.
-
-Maybe it works well also on Ubuntu systems.
-
-### What is this repository for? ###
-
-This repository contains some scripts for the automation
-
-of installation of ISPConfig 3 control panel.
-
-Before start be sure to configure your server following the following guides:
-
-- Debian 9: https://www.howtoforge.com/tutorial/debian-minimal-server/
-- Debian 8: https://www.howtoforge.com/tutorial/debian-8-jessie-minimal-server/
-- Debian 7: https://www.howtoforge.com/perfect-server-debian-wheezy-apache2-bind-dovecot-ispconfig-3
-- Ubuntu 14.10: https://www.howtoforge.com/tutorial/ubuntu-minimal-server-install/
-- Ubuntu 15.10: https://www.howtoforge.com/tutorial/ubuntu-minimal-server-install/
-- Ubuntu 16.04: https://www.howtoforge.com/tutorial/ubuntu-minimal-server-install/
-- Centos 7: http://www.howtoforge.com/centos-7-server
+Se requiere una instalación de linux e internet para que funcione el script, aunque se recomienda ubuntu 18.04 server.
+https://www.ubuntu.com/download/server/thank-you?country=ES&version=18.04.1&architecture=amd64
 
 You can Choose during install:
 - Apache / Nginx
 - Dovecot or Courier
 - Quota On/Off
 - Jailkit On/Off
-- Squirrelmail / Roundcube
+- Roundcube
 - ISPConfig 3 Standard / Expert mode
 - ISPConfig 3 Multiserver Setup (* Debian 8 only for now)
 
-### How do I get set up? ###
-
-* Summary of set up
-
-First of all follow the guide 
 
 https://www.howtoforge.com/perfect-server-debian-wheezy-apache2-bind-dovecot-ispconfig-3
 
